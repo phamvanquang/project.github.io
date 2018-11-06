@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Family-Wunderlist</title>
+	<style type="text/css">
+		#lists{
+			overflow: hidden;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="wunderlist.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+	<div id="confirmation">
+		<div class="content-firm">
+			<div class="content-inner">
+				<img src="wunderlist-icon.png">
+				<div class="comfirm-text">
+					<div class="custom-text">
+						<h3>Are you sure you want to delete this comment forever?</h3>
+						<p>You will not be able to undo this action.</p>
+					</div>
+				</div>
+			</div>
+			<div class="content-foodter">
+				<div class="col">
+					<div class="col-20"></div>
+					<div class="col-40">
+						<button class="cancel">
+							<span>Cancel</span>
+						</button>
+					</div>
+					<div class="col-40">
+						<button class="blue">
+							<span>Delete</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="confirmation-main">
+		<div class="content-firm">
+			<div class="content-inner">
+				<img src="wunderlist-icon.png">
+				<div class="comfirm-text">
+					<div class="custom-text">
+						<h3>"07" will be deleted forever.</h3>
+						<p>You will not be able to undo this action.</p>
+					</div>
+				</div>
+			</div>
+			<div class="content-foodter">
+				<div class="col">
+					<div class="col-20"></div>
+					<div class="col-40">
+						<button class="cancel">
+							<span>Cancel</span>
+						</button>
+					</div>
+					<div class="col-40">
+						<button class="blue">
+							<span>Delete To-do</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div id="confirmation-account">
+		<div id="setting">
+			<div class="content-setting">
+				<div class="tabs">
+					<ul>
+						<li>
+							<a href="#">
+								<i class="fas fa-user"></i>
+								<span>General</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fas fa-user"></i>
+								<span>General</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fas fa-user"></i>
+								<span>General</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fas fa-user"></i>
+								<span>General</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fas fa-user"></i>
+								<span>General</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fas fa-user"></i>
+								<span>General</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="content-inner">
+					<div class="content-image">
+						<div class="img-p">
+							<img src="p.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="popover">
+		<div class="arrow-bottom"></div>
+		<div class="stream-popover">
+			<div class="stream-head">
+				<h3>Conversation</h3>
+			</div>
+			<div class="stream-body">
+				<img src="p.png">
+				<h1>No Conversations</h1>
+				<p>Start a conversation now by commenting on a to-do in a shared list.</p>
+			</div>
+		</div>
+	</div>
+	<ul class="context-menu">
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Mark as Completed</span>
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Mark as Starred</span>
+		</li>
+		<li class="context-menu-item separator">
+			
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Due Today</span>
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Due Tomorrow</span>
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Remove Due Date</span>
+		</li>
+		<li class="context-menu-item separator">
+			
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Create a new  list from To-do</span>
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Move to-do to...</span>
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Email Selected To-do</span>
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Print Selected To-do</span>
+		</li>
+		<li class="context-menu-item separator">
+			
+		</li>
+		<li class="context-menu-item menuItem">
+			<i class="fas fa-check"></i>
+			<span>Copy To-do</span>
+		</li>
+		<li class="context-menu-item menuItem del">
+			<i class="fas fa-check"></i>
+			<span>Delete To-do</span>
+		</li>
+	</ul>
+<div class="main-interface">
+	<div class="create-new-list">
+		<div class="new-list">
+			<div class="list-header">
+				<h3>Create New List</h3>
+				<div class="separator-list input-list">
+					<input class="list-name" type="text" name="" placeholder="List Name">
+				</div>
+				<div class="separator-list">
+					<ul class="content-tabs">
+						<li>
+							<a href="#" class="list-member">
+								<samp>LIST MEMBER</samp>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="options-list">
+								<samp>LIST OPTIONS</samp>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="separator-list input-list member">
+					<input class="list-email" type="text" name="" placeholder="Name or email address...">
+				</div>
+			</div>
+			<div class="list-options">
+				<div class="separator-options">
+					<input type="checkbox" name="">
+					<span>Do Not Disturb</span>
+				</div>
+			</div>
+			<div class="tab-members member">
+				<div class="member-inner">
+					<ul class="content-people">
+						<li>
+							<div class="content-people-image">
+								<img src="p.png">
+							</div>
+							<div class="content-people-meta">
+								<div class="content-people-name">
+									<span class="content-people-name-label">Pham Quang</span>
+								</div>
+							<span class="content-people-email">phamquang98by@gmail.com</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="tab-foodter">
+				<button class="cancel-full">Cancel</button>
+				<button class="save">Save</button>
+			</div>
+		</div>
+	</div>
+	<div id="lists">
+		<div id="lists-inner">
+			<div id="search-toolbar">
+				<div class="toggle-icon" title="Toggle Siderbar">
+					<div class="bar-1"></div>
+					<div class="bar-2"></div>
+					<div class="bar-3"></div>
+				</div>
+				<div class="left">
+					<div class="search-input media">
+						<input class="search" type="text" name="text">
+					</div>
+					<div class="search-icon media">
+						<i class="fa fa-search" aria-hidden="true"></i>
+						<i class="fas fa-bomb"></i>
+					</div>
+				</div>
+			</div>
+			<!-- AND Search -->
+			<div id="user-toolbar">
+				<a class="user" href="#">
+					<div class="user-avatar">
+						<div class="avatar" title="Pham Quang">
+							<img src="p.png">
+						</div>
+						<div class="user-name media">
+						<span>Pham Quang</span>
+						</div>
+						<div class="arrow media">
+							<i class="fa fa-arrow-down" aria-hidden="true"></i>
+						</div>
+					</div>
+				</a>
+				<div class="content">
+					<ul class="list-menu">
+						<li class="last-synced">
+							<span>Last synced a few seconds ago</span>
+						</li>
+						<li class="sync-now boder list-hover">
+							<a href="">Sync Now</a>
+						</li>
+						<li class="account list-hover">
+							<a href="">Account Setting</a>
+						</li>
+						<li class="change list-hover">
+							<a href="">Change Background</a>
+						</li>
+						<li class="restore boder list-hover">
+							<a href="">Restore deleted lits</a>
+						</li>
+						<li class="install list-hover">
+							<a href="">Install the Browser Extension</a>
+						</li>
+						<li class="love list-hover">
+							<a href="">Love Wunderlist Website</a>
+						</li>
+						<li class="tell list-hover">
+							<a href="">Tell Your Friends...</a>
+						</li>
+						<li class="wunderlist boder list-hover">
+							<a href="">Wunderlist Website</a>
+						</li>
+						<li class="last-synced">
+							<span>phamquang98by@gmail.com</span>
+						</li>
+						<li class="wunderlist boder list-hover">
+							<a href="">Sign Out</a>
+						</li>
+					</ul>
+				</div>
+				<div class="stream-count media">
+					<a href="#" class="bell">
+						<i class="far fa-bell"></i>
+					</a>
+					<a href="#" class="comment">
+						<i class="far fa-comment"></i>
+					</a>
+				</div>
+			</div>
+			<!-- END User-toobar-->
+			<div id="list-scroll">
+				
+				<a href="#" class="list-inbox">
+					<ul class="list-select">
+						<li class="inbox-item">
+							<i class="fa fa-inbox" aria-hidden="true"></i>
+							<span class="text media">Inbox</span>
+							<span class="number media">3</span>
+						</li>
+					</ul>
+				</a>
+
+				<a href="#" class="list-family">
+					<ul class="list-select">
+						<li class="family-item">
+							<i class="fas fa-list-ul"></i>
+							<span class="text media">Family</span>
+							<span class="number media">1</span>
+						</li>
+					</ul>
+				</a>
+				
+			</div>
+			<!-- END List-scroll-->
+			<div id="create-list">
+				<a href="#" class="add-list">
+					<i class="fa fa-plus" aria-hidden="true"></i>
+					<span class="media">Create list</span>
+				</a>
+			</div>
+			<!-- END Create-list -->
+		</div>
+	</div>
+	<!-- END List -->
+	<div id="detail">
+		<div class="inner">
+			<div class="top">
+				<input class="check" type="checkbox" name="checkbox">
+				<div class="text-view">
+					<input type="text" name="text" value="07">
+				</div>
+				<i class="far fa-star"></i>
+			</div>
+			<!-- END TOP -->
+			<dir class="bottom">
+				<a class="forward" href="#">
+					<i class="fa fa-forward" aria-hidden="true"></i>
+				</a>
+				<a class="trash" href="#">
+					<i class="fa fa-trash" aria-hidden="true"></i>
+				</a>
+				<div class="add-comment">
+					<div class="input-fake">
+						<input type="text" name="text" placeholder="Add a comment...">
+					</div>
+				</div>
+				<div class="detail-info">
+					<span>Created on Fri,August 24</span>
+				</div>
+			</dir>
+			<!-- END Bottom -->
+			<div class="body">
+					<a href="#" class="icon-date">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</a>
+					<a href="#" class="icon-clock">
+						<i class="far fa-clock"></i>
+					</a>
+					<a href="#" class="icon-add">
+						<i class="fas fa-plus"></i>
+					</a>
+					<a href="#" class="icon-pen">
+						<i class="fas fa-pen"></i>
+					</a>
+					<a href="#" class="icon-file">
+						<i class="fas fa-paperclip"></i>
+					</a>
+					<a href="#" class="icon-dropbox">
+						<i class="fab fa-dropbox"></i>
+					</a>
+					<a href="#" class="icon-voice">
+						<i class="fas fa-microphone"></i>
+					</a>
+					<a href=""></a>
+					<div class="body-item">
+						<span>Set due date</span>
+					</div>
+					<div class="body-item">
+						<span>Remind me</span>
+					</div>
+					<div class="body-item">
+						<input type="text" name="text" placeholder="Add a subtask">
+					</div>
+					<div class="body-item">
+						<input type="text" name="text" placeholder="Add a not...">
+					</div>
+					<div class="body-item">
+						<span>Add a file</span>
+						<input class="none" type="file" name="file" placeholder="Add a file">
+					</div>
+					<div class="comment-main">
+						<ul class="comment-list">
+							<li class="comment-item">
+								<div class="section-icon picture">
+									<img src="p.png">
+								</div>
+								<div class="section-content">
+									<span class="comment-author">
+										Pham Quang
+									</span>
+									<span class="comment-time">
+										Comment-time
+									</span>
+									<a href="#" class="section-delete">
+										<i class="fas fa-backspace"></i>
+									</a>
+									<div class="comment-text">aaa</div>
+								</div>
+							</li>
+							<li class="comment-item">
+								<div class="section-icon picture">
+									<img src="p.png">
+								</div>
+								<div class="section-content">
+									<span class="comment-author">Pham Quang</span>
+									<span class="comment-time">Comment-time</span>
+									<a href="#" class="section-delete">
+										<i class="fas fa-backspace"></i>
+									</a>
+									<div class="comment-text">aaa</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+			<!-- END Body -->
+		</div>
+	</div>
+	<!-- END Detail -->
+	<div id="main">
+		<div class="list-toolbar">
+			<h1>Inbox</h1>
+			<div class="actionBar">
+				<div class="actionBar-top">
+					<div class="actionBar-top-more action" style="display: none;">
+						<ul class="actionBar-top-more-item">
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="actionBar-top-sort action" style="display: none;">
+						<ul class="actionBar-top-more-item">
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="far fa-envelope"></i>
+									<span>Duplicate List</span>
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="actionBar-bottom">
+					<a href="#" class="tab-share">
+						<i class="fa fa-share" aria-hidden="true"></i>
+						<span>Share</span>
+					</a>
+					<a href="#" class="tab-sort">
+						<i class="fa fa-sort" aria-hidden="true"></i>
+						<span>Sort</span>	
+					</a>
+					<a href="#" class="tab-more">
+						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+						<span>More</span>
+					</a>
+					
+				</div>
+			</div>
+		</div>
+		<!-- END List-toolbar -->
+		<div id="tasks-scroll">
+			<div class="addTask">
+				<a href="#" class="icon-addTask">
+					<i class="fas fa-plus"></i>
+				</a>
+				<div class="addTask-input">
+					<input id="input-add" type="text" name="text" placeholder="Add a to-do...">
+				</div>
+			</div>
+			<div class="Tasks-list">
+				<div class="list-item">
+					<!-- <ul class="Task-list item-list">
+						<li class="Task-list-select" style="list-style: none;">
+							
+								<a href="#" class="select-item-icon">
+									<i title="Mark as Completed" class="far fa-square icon"></i>
+								</a>
+								<span>07</span>
+								<i class="far fa-star"></i>
+							
+						</li>
+					</ul>
+					<ul class="Task-list item-list">
+						<li class="Task-list-select" style="list-style: none;">
+							
+								<a href="#" class="select-item-icon">
+									<i title="Mark as Completed" class="far fa-square icon"></i>
+								</a>
+								<span>07</span>
+								<i class="far fa-star"></i>
+							
+						</li>
+					</ul>
+					<ul class="Task-list item-list">
+						<li class="Task-list-select" style="list-style: none;">
+							
+								<a href="#" class="select-item-icon">
+									<i title="Mark as Completed" class="far fa-square icon"></i>
+								</a>
+								<span>07</span>
+								<i class="far fa-star"></i>
+							
+						</li>
+					</ul> -->
+				</div>
+				<h2 class="heading">
+					<a href="#" class="title-head">
+						<span>SHOW COMPLETED TO-DOS</span>
+					</a>
+				</h2>
+				<div class="Task-item" style="display: none;">
+					<!-- <ul class="Task-item-select item-list">
+						<li>
+							<i class="far fa-check-square icon-item"></i>
+							<span class="Task-item-title">aaa</span>
+							<span class="Task-item-time">Time post</span>
+							<i class="far fa-star"></i>
+							
+						</li>
+					</ul>
+					<ul class="Task-item-select item-list">
+						<li>
+							<i class="far fa-check-square icon-item"></i>
+							<span class="Task-item-title">aaa</span>
+							<span class="Task-item-time">Time post</span>
+							<i class="far fa-star"></i>
+							
+						</li>
+					</ul>
+					<ul class="Task-item-select
+					item-list">
+						<li>
+							<i class="far fa-check-square icon-item"></i>
+							<span class="Task-item-title">aaa</span>
+							<span class="Task-item-time">Time post</span>
+							<i class="far fa-star"></i>
+							
+						</li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="wunderlist.js"></script>
+</body>
+</html>
